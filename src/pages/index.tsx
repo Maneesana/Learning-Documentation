@@ -30,7 +30,7 @@ export default function Home(): ReactNode {
             description="Docs related to  software development and programming"
         >
             <HomepageHeader />
-            <main>{/* <HomepageFeatures /> */}</main>
+            {/* <main><HomepageFeatures /></main> */}
         </Layout>
     )
 }

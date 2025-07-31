@@ -8,11 +8,11 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    width: 1300px;
-    margin: auto;
     margin-top: none;
     margin-bottom: none;
-    background-color: #67ae6e;
+    color: #0b4257;
+    background-color: #f0f8ff;
+    margin-top: 80px;
 }
 
 @media screen and (max-width: 996px) {
