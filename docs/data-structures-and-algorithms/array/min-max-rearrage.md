@@ -3,6 +3,10 @@ title: 'Min Max Rearrangement of a Sorted Array'
 tags: [array]
 ---
 
+:::info[Solved On]
+3rd August, 2025
+:::
+
 Today, I tackled an interesting array problem: rearranging a sorted array into a "min-max" format. The goal is to transform an array like `[1, 2, 3, 4, 5]` into `[5, 1, 4, 2, 3]`. I explored two different solutions: a straightforward approach using extra space and a more clever, space-efficient method that modifies the array in-place.
 
 ### The Problem
