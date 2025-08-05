@@ -7,7 +7,22 @@ Today, I tackled an interesting array problem: rearranging a sorted array into a
 
 ### The Problem
 
-Given a sorted array of numbers, rearrange it so that the first element is the maximum value, the second is the minimum, the third is the second-to-last, the fourth is the second element, and so on.
+You are given a sorted array nums containing only positive integers. Your task is to rearrange the array so that:
+
+The element at index 0 is the largest number.
+
+The element at index 1 is the smallest number.
+
+The element at index 2 is the second-largest number.
+
+The element at index 3 is the second-smallest number, and so on.
+
+In other words, even indices should contain the remaining largest numbers in descending order, while odd indices should contain the remaining smallest numbers in ascending order.
+
+**Constraints:**
+
+- 0 ≤ nums.length ≤ 10^3
+- 1 ≤ nums[i] ≤ 10^5
 
 ### Solution 1: The Straightforward Approach (Out-of-Place)
 
