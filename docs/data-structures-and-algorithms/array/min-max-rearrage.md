@@ -1,55 +1,50 @@
 ---
-title: 'Min Max Rearrangement of a Sorted Array'
+title: 'Rearranging a Sorted Array in Min-Max Form'
 tags: [array]
 ---
 
-:::info[Solved On]
-3rd August, 2025
-:::
+## Introduction
 
-Today, I tackled an interesting array problem: rearranging a sorted array into a "min-max" format. The goal is to transform an array like `[1, 2, 3, 4, 5]` into `[5, 1, 4, 2, 3]`. I explored two different solutions: a straightforward approach using extra space and a more clever, space-efficient method that modifies the array in-place.
+In this post, I explore an interesting array rearrangement problem: transforming a sorted array into a "min-max" pattern. I'll look at two solutions: a simple one that uses extra space, and a more clever in-place solution that uses a mathematical trick to save space.
 
-### The Problem
+## The Problem
 
-You are given a sorted array nums containing only positive integers. Your task is to rearrange the array so that:
+Given a sorted array of positive integers, rearrange it so that the first element is the maximum value, the second is the minimum, the third is the second-maximum, the fourth is the second-minimum, and so on.
 
-The element at index 0 is the largest number.
-
-The element at index 1 is the smallest number.
-
-The element at index 2 is the second-largest number.
-
-The element at index 3 is the second-smallest number, and so on.
-
-In other words, even indices should contain the remaining largest numbers in descending order, while odd indices should contain the remaining smallest numbers in ascending order.
+**Example:**
+Input: `[1, 2, 3, 4, 5]`
+Output: `[5, 1, 4, 2, 3]`
 
 **Constraints:**
 
 - 0 ≤ nums.length ≤ 10^3
 - 1 ≤ nums[i] ≤ 10^5
 
-### Solution 1: The Straightforward Approach (Out-of-Place)
+## Solution 1: The Straightforward Approach (Using Extra Space)
 
-The most intuitive way to solve this is to create a new array. We can use two pointers, one at the beginning (`min`) and one at the end (`max`) of the original array. We then iterate, adding the element from the `max` pointer and then the element from the `min` pointer to our new result array, moving the pointers inward until they meet.
+The most intuitive way to solve this is to create a new result array. I use two pointers: `min` starting at the beginning of the sorted input array and `max` starting at the end. I then build my new array by taking an element from the `max` pointer, then from the `min` pointer, and moving the pointers inward until they meet.
 
-This approach is easy to understand and implement, but it has a space complexity of O(n) because it requires an auxiliary array of the same size as the input.
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n)
 
-### Solution 2: The Encoding Trick (In-Place)
+## Solution 2: The In-Place Encoding Trick
 
-A more advanced solution rearranges the array in-place, achieving O(1) space complexity. The key is a clever encoding technique that allows us to store two numbers in a single array element.
+A more advanced solution rearranges the array in-place, achieving O(1) space complexity. The key is a clever encoding technique that allows storing two numbers (the original value and the new value) in a single array element.
 
-The formula is: `New Value = Old Value + (Value To Add * Marker)`
+### Algorithm:
 
-Here, the `Marker` is a number larger than any element in the array. This ensures that when we modify the array elements, the original values are not lost.
+1.  **Find a Marker**: Choose a `Marker` value that is larger than any element in the array (e.g., `max_element + 1`).
+2.  **Encoding Pass**: Iterate through the array. At each index `i`, I want to store the new value (either a max or a min from the ends of the array) without losing the original value. I do this with the formula:
+    `arr[i] = arr[i] + (new_value % Marker) * Marker`
+    - For even indices, `new_value` is `arr[max_index]`.
+    - For odd indices, `new_value` is `arr[min_index]`.
+      The original value at `arr[i]` can still be retrieved using `arr[i] % Marker`.
+3.  **Decoding Pass**: After encoding, iterate through the array one last time and retrieve the final rearranged numbers by dividing each element by the `Marker`:
+    `arr[i] = arr[i] / Marker`
 
-1.  **Encoding:** We iterate through the array. For even indices, we want to place a "max" element, and for odd indices, a "min" element. We modify the element at the current index `i` by adding the desired new value (`arr[max_index]` or `arr[min_index]`) multiplied by our `Marker`.
-    - `arr[i] += (arr[max_index] % Marker) * Marker`
-2.  **Decoding:** After the encoding pass is complete, the array contains the modified values. To retrieve the final rearranged numbers, we simply divide each element by the `Marker`.
-    - `arr[i] = arr[i] / Marker`
+This is a clever way to use the limited space of the array itself to store the information needed for the rearrangement.
 
-This works because the original value can be retrieved using the modulo operator (`arr[i] % Marker`), while the new, rearranged value is retrieved with integer division.
-
-Here is the C++ implementation of both the encoding logic and the rearrangement algorithms.
+## Solution Code
 
 ```cpp
 #include<iostream>
