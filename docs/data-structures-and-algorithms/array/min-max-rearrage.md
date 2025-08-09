@@ -3,6 +3,10 @@ title: 'Rearranging a Sorted Array in Min-Max Form'
 tags: [array]
 ---
 
+:::info[Solved On]
+3rd August, 2025
+:::
+
 ## Introduction
 
 In this post, I explore an interesting array rearrangement problem: transforming a sorted array into a "min-max" pattern. I'll look at two solutions: a simple one that uses extra space, and a more clever in-place solution that uses a mathematical trick to save space.
