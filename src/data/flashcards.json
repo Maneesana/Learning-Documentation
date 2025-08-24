@@ -1,0 +1,437 @@
+[
+    {
+        "id": 1,
+        "title": "React Hooks",
+        "description": "React Hooks are functions that let you use state and other React features without writing a class component. They were introduced in React 16.8 and have revolutionized how we write React applications.",
+        "category": "React",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Import useState",
+                "description": "Import the useState hook from React",
+                "code": "import React, { useState } from 'react'"
+            },
+            {
+                "title": "Declare State Variable",
+                "description": "Use useState to create a state variable and setter function",
+                "code": "const [count, setCount] = useState(0)"
+            },
+            {
+                "title": "Update State",
+                "description": "Use the setter function to update state",
+                "code": "setCount(count + 1)"
+            },
+            {
+                "title": "Use in JSX",
+                "description": "Display the state value in your component",
+                "code": "<button onClick={() => setCount(count + 1)}>Count: {count}</button>"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "TypeScript Benefits",
+        "description": "TypeScript adds static type definitions to JavaScript, helping catch errors early in development and improving code maintainability. It provides better IDE support, refactoring capabilities, and makes code more self-documenting.",
+        "category": "TypeScript",
+        "difficulty": "Beginner",
+        "steps": [
+            {
+                "title": "Install TypeScript",
+                "description": "Add TypeScript to your project",
+                "code": "npm install -g typescript"
+            },
+            {
+                "title": "Create tsconfig.json",
+                "description": "Initialize TypeScript configuration",
+                "code": "tsc --init"
+            },
+            {
+                "title": "Define Types",
+                "description": "Add type annotations to variables and functions",
+                "code": "const message: string = 'Hello TypeScript'"
+            },
+            {
+                "title": "Compile TypeScript",
+                "description": "Convert TypeScript to JavaScript",
+                "code": "tsc index.ts"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Docusaurus",
+        "description": "Docusaurus is a modern static website generator that helps you create beautiful documentation websites with React and Markdown. It features built-in search, versioning, internationalization, and theming.",
+        "category": "Documentation",
+        "difficulty": "Beginner",
+        "steps": [
+            {
+                "title": "Create New Site",
+                "description": "Initialize a new Docusaurus project",
+                "code": "npx create-docusaurus@latest my-website classic"
+            },
+            {
+                "title": "Start Development Server",
+                "description": "Run the development server",
+                "code": "npm start"
+            },
+            {
+                "title": "Create Documentation",
+                "description": "Add markdown files to the docs folder",
+                "code": "// docs/intro.md\n# Welcome\nThis is my documentation."
+            },
+            {
+                "title": "Build and Deploy",
+                "description": "Build the static site for production",
+                "code": "npm run build"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "CSS Grid Layout",
+        "description": "CSS Grid is a powerful layout system that allows you to create complex, responsive web layouts with ease using rows and columns. It works seamlessly with Flexbox and provides precise control over element positioning.",
+        "category": "CSS",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Create Grid Container",
+                "description": "Set display property to grid on parent element",
+                "code": ".container {\n  display: grid;\n}"
+            },
+            {
+                "title": "Define Grid Template",
+                "description": "Specify the structure of rows and columns",
+                "code": ".container {\n  grid-template-columns: 1fr 1fr 1fr;\n  grid-template-rows: auto;\n}"
+            },
+            {
+                "title": "Add Grid Gap",
+                "description": "Set spacing between grid items",
+                "code": ".container {\n  gap: 20px;\n}"
+            },
+            {
+                "title": "Position Grid Items",
+                "description": "Control placement of specific items",
+                "code": ".item {\n  grid-column: 1 / 3;\n  grid-row: 1;\n}"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "JavaScript ES6+",
+        "description": "ES6+ features like arrow functions, destructuring, template literals, and async/await make JavaScript more powerful and expressive.",
+        "category": "JavaScript",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Arrow Functions",
+                "description": "Use concise function syntax",
+                "code": "const add = (a, b) => a + b"
+            },
+            {
+                "title": "Destructuring",
+                "description": "Extract values from objects and arrays",
+                "code": "const { name, age } = person;\nconst [first, second] = array;"
+            },
+            {
+                "title": "Template Literals",
+                "description": "Create strings with embedded expressions",
+                "code": "const message = `Hello ${name}, you are ${age} years old`"
+            },
+            {
+                "title": "Async/Await",
+                "description": "Handle asynchronous operations",
+                "code": "const data = await fetch('/api/data').then(res => res.json())"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Web Performance",
+        "description": "Optimizing web performance involves techniques like code splitting, lazy loading, image optimization, and minimizing bundle sizes.",
+        "category": "Performance",
+        "difficulty": "Advanced",
+        "steps": [
+            {
+                "title": "Code Splitting",
+                "description": "Split your code into smaller chunks",
+                "code": "const Component = React.lazy(() => import('./Component'))"
+            },
+            {
+                "title": "Image Optimization",
+                "description": "Optimize images for faster loading",
+                "code": "<img src='image.webp' loading='lazy' alt='description' />"
+            },
+            {
+                "title": "Bundle Analysis",
+                "description": "Analyze your bundle size",
+                "code": "npm install --save-dev webpack-bundle-analyzer"
+            },
+            {
+                "title": "Caching Strategy",
+                "description": "Implement proper caching headers",
+                "code": "Cache-Control: public, max-age=31536000"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "React Context API",
+        "description": "React Context provides a way to pass data through the component tree without having to pass props down manually at every level.",
+        "category": "React",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Create Context",
+                "description": "Create a new context using createContext",
+                "code": "const ThemeContext = React.createContext()"
+            },
+            {
+                "title": "Create Provider",
+                "description": "Wrap components with the Provider",
+                "code": "<ThemeContext.Provider value={theme}>\n  <App />\n</ThemeContext.Provider>"
+            },
+            {
+                "title": "Consume Context",
+                "description": "Use useContext hook to consume the context",
+                "code": "const theme = useContext(ThemeContext)"
+            },
+            {
+                "title": "Custom Hook",
+                "description": "Create a custom hook for better usability",
+                "code": "const useTheme = () => {\n  const context = useContext(ThemeContext)\n  if (!context) throw new Error(\"useTheme must be used within ThemeProvider\")\n  return context\n}"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Advanced CSS Selectors",
+        "description": "Master advanced CSS selectors like nth-child, attribute selectors, pseudo-classes, and combinators for precise styling.",
+        "category": "CSS",
+        "difficulty": "Advanced",
+        "steps": [
+            {
+                "title": "Nth-child Selectors",
+                "description": "Target specific child elements",
+                "code": ".item:nth-child(odd) {\n  background: #f0f0f0;\n}\n.item:nth-child(3n+1) {\n  margin-left: 0;\n}"
+            },
+            {
+                "title": "Attribute Selectors",
+                "description": "Select elements based on attributes",
+                "code": "input[type=\"email\"] {\n  border: 2px solid blue;\n}\na[href^=\"https://\"] {\n  color: green;\n}"
+            },
+            {
+                "title": "Pseudo-classes",
+                "description": "Style based on element state",
+                "code": ".button:hover:not(:disabled) {\n  transform: scale(1.05);\n}\n.input:focus-within {\n  outline: 2px solid blue;\n}"
+            },
+            {
+                "title": "Combinators",
+                "description": "Combine selectors for complex targeting",
+                "code": ".sidebar > .nav-item + .nav-item {\n  margin-top: 1rem;\n}\n.card ~ .card {\n  margin-left: 1rem;\n}"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "JavaScript Promises",
+        "description": "Promises provide a cleaner way to handle asynchronous operations in JavaScript, avoiding callback hell and improving code readability.",
+        "category": "JavaScript",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Create Promise",
+                "description": "Create a new Promise with resolve and reject",
+                "code": "const myPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    resolve(\"Success!\")\n  }, 1000)\n})"
+            },
+            {
+                "title": "Handle Promise",
+                "description": "Use .then() and .catch() to handle results",
+                "code": "myPromise\n  .then(result => console.log(result))\n  .catch(error => console.error(error))"
+            },
+            {
+                "title": "Promise.all",
+                "description": "Wait for multiple promises to complete",
+                "code": "Promise.all([promise1, promise2, promise3])\n  .then(results => console.log(results))"
+            },
+            {
+                "title": "Async/Await",
+                "description": "Use async/await for cleaner syntax",
+                "code": "async function fetchData() {\n  try {\n    const result = await myPromise\n    console.log(result)\n  } catch (error) {\n    console.error(error)\n  }\n}"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "title": "TypeScript Generics",
+        "description": "Generics allow you to create reusable components and functions that work with multiple types while maintaining type safety.",
+        "category": "TypeScript",
+        "difficulty": "Advanced",
+        "steps": [
+            {
+                "title": "Basic Generic Function",
+                "description": "Create a function that works with any type",
+                "code": "function identity<T>(arg: T): T {\n  return arg\n}\n\nconst result = identity<string>(\"hello\")"
+            },
+            {
+                "title": "Generic Interface",
+                "description": "Define interfaces with generic types",
+                "code": "interface ApiResponse<T> {\n  data: T\n  status: number\n  message: string\n}\n\ntype UserResponse = ApiResponse<User>"
+            },
+            {
+                "title": "Generic Constraints",
+                "description": "Limit generic types with constraints",
+                "code": "interface Lengthwise {\n  length: number\n}\n\nfunction loggingIdentity<T extends Lengthwise>(arg: T): T {\n  console.log(arg.length)\n  return arg\n}"
+            },
+            {
+                "title": "Generic Classes",
+                "description": "Create classes with generic types",
+                "code": "class GenericNumber<T> {\n  zeroValue: T\n  add: (x: T, y: T) => T\n\n  constructor(zeroValue: T, addFn: (x: T, y: T) => T) {\n    this.zeroValue = zeroValue\n    this.add = addFn\n  }\n}"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Node.js Fundamentals",
+        "description": "Node.js allows you to run JavaScript on the server side, enabling full-stack JavaScript development with powerful built-in modules.",
+        "category": "JavaScript",
+        "difficulty": "Beginner",
+        "steps": [
+            {
+                "title": "Create Server",
+                "description": "Create a basic HTTP server",
+                "code": "const http = require('http')\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'text/plain' })\n  res.end('Hello World!')\n})\n\nserver.listen(3000)"
+            },
+            {
+                "title": "File System",
+                "description": "Read and write files using fs module",
+                "code": "const fs = require('fs')\n\n// Read file\nfs.readFile('data.txt', 'utf8', (err, data) => {\n  if (err) throw err\n  console.log(data)\n})\n\n// Write file\nfs.writeFile('output.txt', 'Hello', (err) => {\n  if (err) throw err\n})"
+            },
+            {
+                "title": "NPM Packages",
+                "description": "Install and use npm packages",
+                "code": "// Install package\nnpm install express\n\n// Use package\nconst express = require(\"express\")\nconst app = express()\n\napp.get(\"/\", (req, res) => {\n  res.send(\"Hello Express!\")\n})"
+            },
+            {
+                "title": "Environment Variables",
+                "description": "Use environment variables for configuration",
+                "code": "// Install dotenv\nnpm install dotenv\n\n// Load environment variables\nrequire('dotenv').config()\n\nconst port = process.env.PORT || 3000\nconst dbUrl = process.env.DATABASE_URL"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Responsive Design",
+        "description": "Create websites that work perfectly on all devices using flexible layouts, media queries, and modern CSS techniques.",
+        "category": "CSS",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Mobile-First Approach",
+                "description": "Start with mobile styles and scale up",
+                "code": "/* Mobile styles first */\n.container {\n  width: 100%;\n  padding: 1rem;\n}\n\n/* Then tablet */\n@media (min-width: 768px) {\n  .container {\n    max-width: 768px;\n    margin: 0 auto;\n  }\n}"
+            },
+            {
+                "title": "Flexible Grid",
+                "description": "Use CSS Grid for responsive layouts",
+                "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 2rem;\n  padding: 2rem;\n}"
+            },
+            {
+                "title": "Responsive Images",
+                "description": "Make images adapt to different screen sizes",
+                "code": "img {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Advanced responsive images */\n<picture>\n  <source media=\"(min-width: 800px)\" srcset=\"large.jpg\">\n  <source media=\"(min-width: 400px)\" srcset=\"medium.jpg\">\n  <img src=\"small.jpg\" alt=\"Description\">\n</picture>"
+            },
+            {
+                "title": "Flexible Typography",
+                "description": "Scale text smoothly across devices",
+                "code": "/* Responsive font sizing */\nhtml {\n  font-size: clamp(16px, 2.5vw, 22px);\n}\n\nh1 {\n  font-size: clamp(1.5rem, 4vw, 3rem);\n  line-height: 1.2;\n}"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "title": "React Router",
+        "description": "React Router enables dynamic routing in React applications, allowing you to create single-page applications with multiple views.",
+        "category": "React",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Install React Router",
+                "description": "Add React Router to your project",
+                "code": "npm install react-router-dom"
+            },
+            {
+                "title": "Setup Router",
+                "description": "Wrap your app with BrowserRouter",
+                "code": "import { BrowserRouter as Router } from 'react-router-dom'\n\nfunction App() {\n  return (\n    <Router>\n      {/* Your app components */}\n    </Router>\n  )\n}"
+            },
+            {
+                "title": "Define Routes",
+                "description": "Create routes for different pages",
+                "code": "import { Routes, Route } from 'react-router-dom'\n\n<Routes>\n  <Route path=\"/\" element={<Home />} />\n  <Route path=\"/about\" element={<About />} />\n  <Route path=\"/users/:id\" element={<User />} />\n</Routes>"
+            },
+            {
+                "title": "Navigation",
+                "description": "Use Link component for navigation",
+                "code": "import { Link } from 'react-router-dom'\n\n<nav>\n  <Link to=\"/\">Home</Link>\n  <Link to=\"/about\">About</Link>\n</nav>"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Git Version Control",
+        "description": "Git is a distributed version control system that tracks changes in your code and enables collaboration with other developers.",
+        "category": "DevTools",
+        "difficulty": "Beginner",
+        "steps": [
+            {
+                "title": "Initialize Repository",
+                "description": "Create a new Git repository",
+                "code": "git init\n# or clone existing\ngit clone https://github.com/user/repo.git"
+            },
+            {
+                "title": "Stage and Commit",
+                "description": "Add files and commit changes",
+                "code": "git add .\ngit commit -m \"Initial commit\"\n# or stage specific files\ngit add filename.js"
+            },
+            {
+                "title": "Branching",
+                "description": "Create and switch between branches",
+                "code": "git branch feature-branch\ngit checkout feature-branch\n# or create and switch in one command\ngit checkout -b feature-branch"
+            },
+            {
+                "title": "Push and Pull",
+                "description": "Sync with remote repository",
+                "code": "git push origin main\ngit pull origin main\n# set upstream for first push\ngit push -u origin feature-branch"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "API Development",
+        "description": "Learn to build RESTful APIs with proper HTTP methods, status codes, and error handling for robust backend services.",
+        "category": "Backend",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Setup Express Server",
+                "description": "Create a basic Express.js server",
+                "code": "const express = require('express')\nconst app = express()\n\napp.use(express.json())\n\napp.listen(3000, () => {\n  console.log('Server running on port 3000')\n})"
+            },
+            {
+                "title": "Create Routes",
+                "description": "Define API endpoints with different HTTP methods",
+                "code": "// GET route\napp.get('/api/users', (req, res) => {\n  res.json({ users: [] })\n})\n\n// POST route\napp.post('/api/users', (req, res) => {\n  const user = req.body\n  res.status(201).json({ user })\n})"
+            },
+            {
+                "title": "Error Handling",
+                "description": "Implement proper error handling middleware",
+                "code": "app.use((err, req, res, next) => {\n  console.error(err.stack)\n  res.status(500).json({\n    error: 'Something went wrong!',\n    message: err.message\n  })\n})"
+            },
+            {
+                "title": "Validation",
+                "description": "Add input validation for API endpoints",
+                "code": "const validateUser = (req, res, next) => {\n  const { name, email } = req.body\n  if (!name || !email) {\n    return res.status(400).json({\n      error: 'Name and email are required'\n    })\n  }\n  next()\n}"
+            }
+        ]
+    }
+]

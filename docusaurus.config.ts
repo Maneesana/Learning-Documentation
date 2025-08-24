@@ -98,8 +98,9 @@ const config: Config = {
                     label: 'Tutorial',
                 },
                 { to: '/blog', label: 'Blog', position: 'left' },
+                { to: '/flashcards', label: 'Flash Cards', position: 'left' },
                 {
-                    href: 'https://github.com/facebook/docusaurus',
+                    href: 'https://github.com/Maneesana',
                     label: 'GitHub',
                     position: 'right',
                 },
@@ -143,7 +144,7 @@ const config: Config = {
                         },
                         {
                             label: 'GitHub',
-                            href: 'https://github.com/facebook/docusaurus',
+                            href: 'https://github.com/Maneesana',
                         },
                     ],
                 },

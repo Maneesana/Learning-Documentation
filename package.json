@@ -19,8 +19,11 @@
         "@docusaurus/core": "3.8.1",
         "@docusaurus/preset-classic": "3.8.1",
         "@mdx-js/react": "^3.0.0",
+        "@monaco-editor/react": "^4.7.0",
         "@orama/plugin-docusaurus-v3": "^3.1.11",
         "clsx": "^2.0.0",
+        "framer-motion": "^12.23.12",
+        "monaco-editor": "^0.52.2",
         "prism-react-renderer": "^2.3.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
