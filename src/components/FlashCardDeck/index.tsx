@@ -26,6 +26,8 @@ interface FlashCardDeckProps {
     onEditModeToggle?: () => void
     triggerAddCard?: boolean
     onAddCardTriggered?: () => void
+    importedCards?: CardData[]
+    onImportedCardsProcessed?: () => void
 }
 
 export default function FlashCardDeck({
@@ -34,6 +36,8 @@ export default function FlashCardDeck({
     onEditModeToggle,
     triggerAddCard = false,
     onAddCardTriggered,
+    importedCards,
+    onImportedCardsProcessed,
 }: FlashCardDeckProps): React.ReactElement {
     const [cards, setCards] = useState<CardData[]>([])
     const [selectedCard, setSelectedCard] = useState<CardData | null>(null)
@@ -79,6 +83,30 @@ export default function FlashCardDeck({
             }
         }
     }, [triggerAddCard, onAddCardTriggered])
+
+    // Handle imported cards from API
+    useEffect(() => {
+        if (importedCards && importedCards.length > 0) {
+            // Add unique IDs to imported cards
+            const cardsWithIds = importedCards.map((card) => ({
+                ...card,
+                id: generateUniqueId([
+                    ...cards,
+                    ...importedCards.slice(0, importedCards.indexOf(card)),
+                ]),
+            }))
+
+            // Add imported cards to existing cards
+            const updatedCards = [...cards, ...cardsWithIds]
+            setCards(updatedCards)
+            saveCardsToLocalStorage(updatedCards)
+
+            // Notify parent that import has been processed
+            if (onImportedCardsProcessed) {
+                onImportedCardsProcessed()
+            }
+        }
+    }, [importedCards, onImportedCardsProcessed])
 
     const handleCardSelect = (card: CardData) => {
         // Always open modal regardless of edit mode

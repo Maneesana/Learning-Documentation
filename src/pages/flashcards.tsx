@@ -13,6 +13,7 @@ export default function FlashCardsPage(): React.ReactElement {
     const [isEditMode, setIsEditMode] = useState(false)
     const [triggerAddCard, setTriggerAddCard] = useState(false)
     const [isApiModalOpen, setIsApiModalOpen] = useState(false)
+    const [importedCards, setImportedCards] = useState<any[]>([])
 
     // Keyboard shortcut: Ctrl + Shift + C + D
     useKeyboardShortcut({
@@ -36,6 +37,14 @@ export default function FlashCardsPage(): React.ReactElement {
         setTriggerAddCard(false)
     }
 
+    const handleDataImport = (cards: any[]) => {
+        setImportedCards(cards)
+    }
+
+    const handleImportedCardsProcessed = () => {
+        setImportedCards([])
+    }
+
     return (
         <Layout
             title="Flash Cards"
@@ -46,6 +55,8 @@ export default function FlashCardsPage(): React.ReactElement {
                 onEditModeToggle={() => setIsEditMode((prev) => !prev)}
                 triggerAddCard={triggerAddCard}
                 onAddCardTriggered={handleAddCardTriggered}
+                importedCards={importedCards}
+                onImportedCardsProcessed={handleImportedCardsProcessed}
             />
             <CodeEditorButton
                 onClick={() => setIsCodeEditorOpen((prev) => !prev)}
@@ -60,6 +71,7 @@ export default function FlashCardsPage(): React.ReactElement {
             <ApiModal
                 isOpen={isApiModalOpen}
                 onClose={() => setIsApiModalOpen(false)}
+                onDataImport={handleDataImport}
             />
         </Layout>
     )
