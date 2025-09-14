@@ -39,3 +39,10 @@ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+
+### Future Features
+1. User being able to download PDF report on FlashCards page 
+    - [jsPDF](https://rawgit.com/MrRio/jsPDF/master/docs/jsPDF.html#addFont)
+    - [pdf-lib](https://github.com/Hopding/pdf-lib)
+

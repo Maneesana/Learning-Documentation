@@ -7,7 +7,7 @@ import ResetButton from '../ResetButton'
 import SaveButton from '../SaveButton'
 import ConfirmDialog from '../ConfirmDialog'
 import styles from './styles.module.css'
-import flashcardsData from '../../data/flashcards.json'
+import { flashcardsData } from "../../data/index"
 import {
     saveCardsToLocalStorage,
     loadCardsFromLocalStorage,
