@@ -1,0 +1,16 @@
+
+[
+    {
+        "title": "Array",
+        "description": "Array data structure",
+        "category": "Data Structures",
+        "difficulty": "Intermediate",
+        "steps": [
+            {
+                "title": "Import useState",
+                "description": "Hello Array ",
+                "code": "import React, { useState } from 'react'"
+            }
+        ]
+    }
+]

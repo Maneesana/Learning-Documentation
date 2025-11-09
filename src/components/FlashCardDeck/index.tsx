@@ -171,6 +171,7 @@ export default function FlashCardDeck({
     }
 
     const handleReset = () => {
+	saveInitialDataToLocalStorage(flashcardsData)
         const resetCards = resetToInitialData()
         if (resetCards) {
             setCards(resetCards)

@@ -1,15 +1,32 @@
-export interface CardData {
-    id: number
-    title: string
-    description: string
-    category: string
-    difficulty: string
-    steps: {
-        title: string
-        description: string
-        code?: string
-    }[]
+import { CardData } from '../components/CardFormModal'
+import { PGlite } from '@electric-sql/pglite'
+///// PGLite
+export class FlashCardDB {
+    private static DBInstance: PGlite | null = null
+
+    static getInstance() {
+        if (this.DBInstance !== null) return this.DBInstance
+        if (this.DBInstance === null) {
+            const db = new PGlite('idb://flash-card')
+            return db
+        }
+    }
 }
+
+async function createFlashCardTable() {
+    const db = FlashCardDB.getInstance()
+    // create flash_card table
+    await db.exec(`
+    CREATE TABLE IF NOT EXISTS flash_card
+    (
+        id UUID PRIMARY KEY,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL
+    )
+
+`)
+}
+/////
 
 const STORAGE_KEY = 'flashcards_data'
 const INITIAL_DATA_KEY = 'flashcards_initial_data'
@@ -33,9 +50,39 @@ export const loadCardsFromLocalStorage = (): CardData[] | null => {
     }
 }
 
+export const addCardV2_DB = async (newCard: CardData): Promise<void> => {
+    console.log('New Card Data V2 database: ', newCard)
+    await createFlashCardTable()
+
+    // add flash card
+
+    const db = FlashCardDB.getInstance()
+    const res = await db.query(
+        `
+    INSERT INTO flash_card 
+    (
+        id,
+        title,
+        description
+    )
+    VALUES 
+    (
+        $1,
+        $2,
+        $3
+    )
+`,
+        [newCard.id, newCard.title, newCard.description]
+    )
+
+    // Confirming after insert
+    const savedCardOnDB = await db.exec(`SELECT * FROM flash_card;`)
+    console.log({ savedCardOnDB })
+}
 export const addCard = (cards: CardData[], newCard: CardData): CardData[] => {
     const updatedCards = [...cards, newCard]
     saveCardsToLocalStorage(updatedCards)
+    addCardV2_DB(newCard)
     return updatedCards
 }
 
@@ -50,17 +97,18 @@ export const updateCard = (
     return updatedCards
 }
 
-export const deleteCard = (cards: CardData[], cardId: number): CardData[] => {
+export const deleteCard = (
+    cards: CardData[],
+    cardId: string | number
+): CardData[] => {
     const updatedCards = cards.filter((card) => card.id !== cardId)
     saveCardsToLocalStorage(updatedCards)
     return updatedCards
 }
 
-export const generateUniqueId = (existingCards: CardData[]): number => {
-    const maxId = existingCards.reduce((max, card) => Math.max(max, card.id), 0)
-    return maxId + 1
+export const generateUniqueId = (existingCards: CardData[]): string => {
+    return crypto.randomUUID()
 }
-
 export const saveInitialDataToLocalStorage = (cards: CardData[]): void => {
     try {
         localStorage.setItem(INITIAL_DATA_KEY, JSON.stringify(cards))
