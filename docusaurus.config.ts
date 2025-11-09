@@ -5,9 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic'
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-    title: 'Welcome to My Technical Blog!',
+    title: 'Welcome to my technical blog!',
     tagline: `Hi there! I'm thrilled to have you here on my blog, where I dive deep into the world of software development and programming. Expect practical insights, tutorials, and tips on coding, tools, and best practices to help you build better software. Whether you're a beginner or a seasoned developer, join me on this journey to explore the latest in tech and sharpen your skills!`,
-    favicon: 'img/favicon.ico',
+    favicon: 'img/coding_blue.png',
 
     // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
     future: {
@@ -83,12 +83,12 @@ const config: Config = {
 
     themeConfig: {
         // Replace with your project's social card
-        image: 'img/docusaurus-social-card.jpg',
+        image: 'img/coding_blue.png',
         navbar: {
             title: 'Maibam Maneesana Singh',
             logo: {
                 alt: 'My Site Logo',
-                src: 'img/logo.svg',
+                src: 'img/coding_blue.png',
             },
             items: [
                 {
